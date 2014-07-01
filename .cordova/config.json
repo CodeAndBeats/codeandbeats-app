@@ -1,0 +1,9 @@
+{
+    "lib": {
+        "www": {
+            "id": "com.stevelacy.codeandbeats",
+            "version": "3.5.0",
+            "uri": "https://github.com/CodeAndBeats/codeandbeats-app/archive/3.5.0.tar.gz"
+        }
+    }
+}
