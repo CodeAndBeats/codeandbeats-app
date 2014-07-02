@@ -1,6 +1,20 @@
 /www/node/phonegap/codeandbeats/platforms/android/ant-build/classes.dex : \
 /www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/devicemotion/AccelListener.class \
 /www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/devicemotion/AccelListener$1.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$1.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppChromeClient.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$InAppBrowserClient.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$2.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$1.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$4.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4$1.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$3.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$3.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowserDialog.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$2.class \
+/www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4.class \
 /www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/com/stevelacy/codeandbeats/R.class \
 /www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/com/stevelacy/codeandbeats/R$attr.class \
 /www/node/phonegap/codeandbeats/platforms/android/ant-build/classes/com/stevelacy/codeandbeats/R$drawable.class \
