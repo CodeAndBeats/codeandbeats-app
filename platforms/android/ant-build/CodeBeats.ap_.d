@@ -92,6 +92,7 @@
 /www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/message.styl \
 /www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/colors.styl \
 /www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/font-hero.styl \
+/www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/trans-all.styl \
 /www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/header.styl \
 /www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/graph.styl \
 /www/node/phonegap/codeandbeats/platforms/android/assets/www/css/includes/content.styl \

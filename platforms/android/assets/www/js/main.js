@@ -1,85 +1,38 @@
 (function() {
   $(document).ready(function(jQuery) {
-    var RGBtoHex, animate, app, calculateIncrement, checkStatus, colorCycle, colorDistance, fps, generateRGB, getElementBG, iteration, onError, onSuccess, showLogin, socket, socketError, stopAnimate;
+    var RGBtoHex, app, calculateIncrement, colorCycle, colorDistance, fps, generateRGB, getElementBG, iteration, onError, onSuccess, showLogin, socket, userHandle;
     socket = io.connect("http://lacy.ngrok.com");
     $(".message, .error").hide().text("");
-    socketError = true;
+    userHandle = false;
     onSuccess = function(accel) {
-
-      /*
-      document.getElementById("x").innerHTML = accel.x
-      document.getElementById("y").innerHTML = accel.y
-      document.getElementById("z").innerHTML = accel.z
-       */
+      var x, y;
+      x = (accel.x * -5) + 50;
+      y = (accel.y * 5) + 50;
+      $(".circle").css({
+        left: "" + x + "%",
+        top: "" + y + "%"
+      });
       socket.emit("accel", {
-        data: accel
+        data: accel,
+        user: userHandle
       });
     };
     onError = function() {
       return alert("onError!");
-    };
-    animate = function() {
-
-      /*
-      block = $(".graph")
-      block.animate
-        "backgroundColor": "#333"
-         *backgroundColor: jQuery.Color(block.css("backgroundColor")).hue("+=50")
-      , 3000, animate
-      return
-       */
-    };
-    stopAnimate = function() {
-      var block;
-      console.log("stoping animation");
-      block = $(".graph");
-      return block.animate().stop().animate({
-        backgroundColor: "#e74c3c"
-      });
-    };
-    checkStatus = function() {
-      if (socketError) {
-        stopAnimate();
-        return $(".error").show().text("Error: Disconnected from Socket");
-      } else {
-        animate();
-        $(".message, .error").hide().text("");
-        return $(".message").show().text("Connected! :)").fadeOut();
-      }
     };
     showLogin = function() {
       OAuth.initialize("V8o2C_OyHInrOKWlj9dOlnSPUss");
       return OAuth.popup("twitter", {
         cache: true
       }).done(function(result) {
-        return alert(JSON.stringify(result));
+        console.log(JSON.stringify(result));
+        return result.me().done(function(data) {
+          return userHandle = data.alias;
+        });
       }).fail(function(err) {
-        return alert(JSON.stringify(err));
+        return console.log(JSON.stringify(err));
       });
     };
-    app = {
-      initialize: function() {
-        this.bindEvents();
-      },
-      bindEvents: function() {
-        return document.addEventListener("deviceready", this.onDeviceReady, false);
-      },
-      onDeviceReady: function() {
-        navigator.accelerometer.watchAcceleration(onSuccess, onError, {
-          frequency: 50
-        });
-        return showLogin();
-      }
-    };
-    document.body.addEventListener("load", app.initialize(), false);
-    socket.on("connect", function() {
-      socketError = false;
-      return checkStatus();
-    });
-    socket.on("disconnect", function() {
-      socketError = true;
-      return checkStatus();
-    });
     getElementBG = function(elm) {
       var color, colorString, elementColor, endIndex, i, startIndex;
       elementColor = window.getComputedStyle(elm).backgroundColor;
@@ -190,7 +143,36 @@
       increment = calculateIncrement(colorDistance(currentColor, randomColor));
       handler = setInterval(transition, iteration);
     };
-    return colorCycle();
+    app = {
+      initialize: function() {
+        this.bindEvents();
+      },
+      bindEvents: function() {
+        return document.addEventListener("deviceready", this.onDeviceReady, false);
+      },
+      onDeviceReady: function() {
+        showLogin();
+        if (userHandle == null) {
+          return showLogin();
+        }
+        return navigator.accelerometer.watchAcceleration(onSuccess, onError, {
+          frequency: 50
+        });
+      }
+    };
+    document.body.addEventListener("load", app.initialize(), false);
+    colorCycle();
+    socket.on("connect", function() {
+      var socketError;
+      socketError = false;
+      $(".message, .error").hide().text("");
+      return $(".message").show().text("Connected! :)").fadeOut();
+    });
+    return socket.on("disconnect", function() {
+      var socketError;
+      socketError = true;
+      return $(".error").show().text("Error: Disconnected from Socket");
+    });
   });
 
 }).call(this);

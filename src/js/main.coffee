@@ -2,82 +2,33 @@ $(document).ready (jQuery) ->
   socket = io.connect "http://lacy.ngrok.com"
   $(".message, .error").hide().text ""
 
-  socketError = true
+  userHandle = false
 
   onSuccess = (accel) ->
-    ###
-    document.getElementById("x").innerHTML = accel.x
-    document.getElementById("y").innerHTML = accel.y
-    document.getElementById("z").innerHTML = accel.z
-    ###
+    x = (accel.x * -5)+ 50
+    y = (accel.y * 5)+ 50
+    $(".circle").css
+      left: "#{x}%"
+      top: "#{y}%"
+
     socket.emit "accel",
       data: accel
+      user: userHandle
     return
 
   onError = ->
     return alert "onError!"
 
-  animate = ->
-    ###
-    block = $(".graph")
-    block.animate
-      "backgroundColor": "#333"
-      #backgroundColor: jQuery.Color(block.css("backgroundColor")).hue("+=50")
-    , 3000, animate
-    return
-    ###
-  stopAnimate = ->
-    console.log "stoping animation"
-    block = $(".graph")
-    block.animate().stop().animate
-      backgroundColor: "#e74c3c"
-
-  checkStatus = ->
-    if socketError
-      stopAnimate()
-      $(".error").show().text "Error: Disconnected from Socket"
-    else
-      animate()
-      $(".message, .error").hide().text ""
-      $(".message").show().text("Connected! :)").fadeOut()
 
   showLogin = ->
     OAuth.initialize "V8o2C_OyHInrOKWlj9dOlnSPUss"
     OAuth.popup "twitter", {cache: true}
     .done (result) ->
-      alert JSON.stringify result
+      console.log JSON.stringify result
+      result.me().done (data) ->
+        userHandle = data.alias
     .fail (err) ->
-      alert JSON.stringify err
-
-
-  app =
-    initialize: ->
-      @bindEvents()
-      return
-
-    bindEvents: ->
-      return document.addEventListener "deviceready", @onDeviceReady, false
-      
-
-    onDeviceReady: ->
-      navigator.accelerometer.watchAcceleration onSuccess, onError,
-        frequency: 50
-      showLogin()
-
-
-  document.body.addEventListener "load", app.initialize(), false
-
-  socket.on "connect", ->
-    socketError = false
-    checkStatus()
-
-  socket.on "disconnect", ->
-    socketError = true
-    checkStatus()
-
-
-
-
+      console.log JSON.stringify err
 
 
   getElementBG = (elm) ->
@@ -128,6 +79,7 @@ $(document).ready (jQuery) ->
     increment
   fps = 25
   iteration = Math.round(1000 / fps)
+
   colorCycle = () ->
     transition = ->
       if currentColor[0] > randomColor[0]
@@ -160,4 +112,32 @@ $(document).ready (jQuery) ->
     handler = setInterval(transition, iteration)
     return
 
+  app =
+    initialize: ->
+      @bindEvents()
+      return
+
+    bindEvents: ->
+      return document.addEventListener "deviceready", @onDeviceReady, false
+      
+
+    onDeviceReady: ->
+      showLogin()
+      return showLogin() unless userHandle?
+      navigator.accelerometer.watchAcceleration onSuccess, onError,
+        frequency: 50
+
+
+  document.body.addEventListener "load", app.initialize(), false
   colorCycle()
+
+  socket.on "connect", ->
+    socketError = false
+    $(".message, .error").hide().text ""
+    $(".message").show().text("Connected! :)").fadeOut()
+
+  socket.on "disconnect", ->
+    socketError = true
+    $(".error").show().text "Error: Disconnected from Socket"
+
+

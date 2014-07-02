@@ -25,6 +25,13 @@ body {
 .header {
   box-shadow: 0 1px 1px #cdcdcd;
 }
+.trans-all,
+.circle {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
 .header {
   width: 100%;
   height: 50px;
@@ -48,6 +55,19 @@ body {
   width: 100%;
   height: 100%;
   background: #e74c3c;
+}
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 0 8px rgba(0,0,0,0.5);
+  background-image: radial-gradient(#ff0, #ffa500);
 }
 .mask {
   position: absolute;
