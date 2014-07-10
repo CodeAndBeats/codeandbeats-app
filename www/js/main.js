@@ -1,7 +1,7 @@
 (function() {
   $(document).ready(function(jQuery) {
     var RGBtoHex, app, calculateIncrement, colorCycle, colorDistance, fps, generateRGB, getElementBG, iteration, onError, onSuccess, showLogin, socket, userHandle;
-    socket = io.connect("http://lacy.ngrok.com");
+    socket = io.connect("http://codeandbeats-20720.onmodulus.net");
     $(".message, .error").hide().text("");
     userHandle = false;
     onSuccess = function(accel) {
@@ -12,9 +12,9 @@
         left: "" + x + "%",
         top: "" + y + "%"
       });
+      accel.user = userHandle;
       socket.emit("accel", {
-        data: accel,
-        user: userHandle
+        data: accel
       });
     };
     onError = function() {
@@ -27,7 +27,8 @@
       }).done(function(result) {
         console.log(JSON.stringify(result));
         return result.me().done(function(data) {
-          return userHandle = data.alias;
+          userHandle = data.alias;
+          return app.onDeviceReady();
         });
       }).fail(function(err) {
         return console.log(JSON.stringify(err));
@@ -151,17 +152,16 @@
         return document.addEventListener("deviceready", this.onDeviceReady, false);
       },
       onDeviceReady: function() {
-        showLogin();
-        if (userHandle == null) {
+        if (userHandle === false) {
           return showLogin();
         }
+        colorCycle();
         return navigator.accelerometer.watchAcceleration(onSuccess, onError, {
           frequency: 50
         });
       }
     };
     document.body.addEventListener("load", app.initialize(), false);
-    colorCycle();
     socket.on("connect", function() {
       var socketError;
       socketError = false;

@@ -10,10 +10,9 @@ $(document).ready (jQuery) ->
     $(".circle").css
       left: "#{x}%"
       top: "#{y}%"
-
+    accel.user = userHandle
     socket.emit "accel",
       data: accel
-      user: userHandle
     return
 
   onError = ->
@@ -27,6 +26,7 @@ $(document).ready (jQuery) ->
       console.log JSON.stringify result
       result.me().done (data) ->
         userHandle = data.alias
+        app.onDeviceReady()
     .fail (err) ->
       console.log JSON.stringify err
 
@@ -122,14 +122,14 @@ $(document).ready (jQuery) ->
       
 
     onDeviceReady: ->
-      showLogin()
-      return showLogin() unless userHandle?
+      return showLogin() if userHandle is false
+      colorCycle()
       navigator.accelerometer.watchAcceleration onSuccess, onError,
         frequency: 50
 
 
   document.body.addEventListener "load", app.initialize(), false
-  colorCycle()
+  
 
   socket.on "connect", ->
     socketError = false
