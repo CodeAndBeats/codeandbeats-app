@@ -1,0 +1,94 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  background: #efefef;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-family: "Hero-Light";
+}
+@font-face {
+  font-family: "Hero-Light";
+  src: url("../fonts/Hero_Light.eot?") format("eot"), url("../fonts/Hero_Light.woff") format("woff"), url("../fonts/Hero_Light.ttf") format("truetype"), url("../fonts/Hero_Light.svg#Hero-Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.border-box,
+.header {
+  box-shadow: 0 1px 1px #cdcdcd;
+}
+.trans-all,
+.circle {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.header {
+  width: 100%;
+  height: 50px;
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+.content {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.graph {
+  width: 100%;
+  height: 100%;
+  background: #e74c3c;
+}
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 0 8px rgba(0,0,0,0.5);
+  background-image: radial-gradient(#ff0, #ffa500);
+}
+.mask {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(220,220,220,0.2)), to(rgba(80,80,80,0.9)));
+}
+.message,
+.error {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error {
+  background: #e74c3c;
+}
