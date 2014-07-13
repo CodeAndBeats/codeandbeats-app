@@ -59,7 +59,6 @@
 /www/phonegap/codeandbeats/platforms/android/assets/www/config.xml \
 /www/phonegap/codeandbeats/platforms/android/assets/www/fonts \
 /www/phonegap/codeandbeats/platforms/android/assets/www/spec.html \
-/www/phonegap/codeandbeats/platforms/android/assets/www/image \
 /www/phonegap/codeandbeats/platforms/android/assets/www/icon.png \
 /www/phonegap/codeandbeats/platforms/android/assets/www/plugins \
 /www/phonegap/codeandbeats/platforms/android/assets/www/css \
