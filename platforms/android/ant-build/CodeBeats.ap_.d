@@ -39,7 +39,6 @@
 /www/phonegap/codeandbeats/platforms/android/assets/www \
 /www/phonegap/codeandbeats/platforms/android/assets/www/cordova.js \
 /www/phonegap/codeandbeats/platforms/android/assets/www/cordova_plugins.js \
-/www/phonegap/codeandbeats/platforms/android/assets/www/img \
 /www/phonegap/codeandbeats/platforms/android/assets/www/config.xml \
 /www/phonegap/codeandbeats/platforms/android/assets/www/fonts \
 /www/phonegap/codeandbeats/platforms/android/assets/www/spec.html \
@@ -51,7 +50,6 @@
 /www/phonegap/codeandbeats/platforms/android/assets/www/index.html \
 /www/phonegap/codeandbeats/platforms/android/assets/www/oauth.js \
 /www/phonegap/codeandbeats/platforms/android/assets/www/res \
-/www/phonegap/codeandbeats/platforms/android/assets/www/img/logo.png \
 /www/phonegap/codeandbeats/platforms/android/assets/www/fonts/Hero_Light.ttf \
 /www/phonegap/codeandbeats/platforms/android/assets/www/fonts/Hero_Light.svg \
 /www/phonegap/codeandbeats/platforms/android/assets/www/fonts/Hero_Light.eot \
@@ -100,10 +98,12 @@
 /www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/android/icon-72-hdpi.png \
 /www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/android/icon-48-mdpi.png \
 /www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/android/icon-36-ldpi.png \
-/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/icon-57-2x.png \
-/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/icon-57.png \
-/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/icon-72-2x.png \
-/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/icon-72.png \
+/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/Icon-120.png \
+/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/Icon-152.png \
+/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/Icon-76.png \
+/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/Icon-60.png \
+/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/Icon-40.png \
+/www/phonegap/codeandbeats/platforms/android/assets/www/res/icon/ios/Icon-80.png \
 /www/phonegap/codeandbeats/platforms/android/assets/www/res/screen/android \
 /www/phonegap/codeandbeats/platforms/android/assets/www/res/screen/bada \
 /www/phonegap/codeandbeats/platforms/android/assets/www/res/screen/windows-phone \

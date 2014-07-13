@@ -38,7 +38,7 @@ gulp.task "coffee", ->
 
 
 gulp.task "copy", ->
-  gulp.src ["./src/**/*", "!./src/**/*.coffee", "!./src/**/*.jade", "!./src/**/*.stylus"]
+  gulp.src ["./src/**/*", "!./src/**/*.coffee", "!./src/**/*.jade", "!./src/**/*.styl"]
   .pipe gulp.dest "./www/"
   .pipe reload()
 
