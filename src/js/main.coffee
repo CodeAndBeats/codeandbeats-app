@@ -1,5 +1,5 @@
 $(document).ready (jQuery) ->
-  socket = io.connect "http://lacy.ngrok.com"
+  socket = io.connect "http://codeandbeats-20720.onmodulus.net"
   $(".message, .error").hide().text ""
 
   userHandle = false
@@ -119,7 +119,7 @@ $(document).ready (jQuery) ->
 
     bindEvents: ->
       return document.addEventListener "deviceready", @onDeviceReady, false
-      
+
 
     onDeviceReady: ->
       return showLogin() if userHandle is false
@@ -129,7 +129,7 @@ $(document).ready (jQuery) ->
 
 
   document.body.addEventListener "load", app.initialize(), false
-  
+
 
   socket.on "connect", ->
     socketError = false
