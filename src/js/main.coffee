@@ -1,4 +1,4 @@
-$(document).ready (jQuery) ->
+$(document).ready ->
   socket = io.connect "http://codeandbeats-20720.onmodulus.net"
 
   userHandle = false
@@ -112,7 +112,6 @@ $(document).ready (jQuery) ->
 
     bindEvents: ->
       return document.addEventListener "deviceready", @onDeviceReady, false
-
 
     onDeviceReady: ->
       return showLogin() if userHandle is false

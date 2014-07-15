@@ -1,5 +1,5 @@
 (function() {
-  $(document).ready(function(jQuery) {
+  $(document).ready(function() {
     var RGBtoHex, app, calculateIncrement, colorCycle, colorDistance, fps, generateRGB, getElementBG, iteration, onError, onSuccess, showLogin, socket, userHandle;
     socket = io.connect("http://codeandbeats-20720.onmodulus.net");
     userHandle = false;
