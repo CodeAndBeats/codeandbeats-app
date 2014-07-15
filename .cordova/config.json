@@ -1,0 +1,9 @@
+{
+    "lib": {
+        "www": {
+            "id": "com.stevelacy.codeandbeats",
+            "version": "0.1.0",
+            "uri": "https://github.com/CodeAndBeats/codeandbeats-app"
+        }
+    }
+}
